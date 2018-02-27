@@ -1,0 +1,44 @@
+//
+   Created by Administrator on 2018\1\22 0022.
+
+doctype
+html
+    head
+        meta(charset='utf-8')
+        title #{title}
+        link(href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet")
+        script(src="/jquery/dist/jquery.js")
+        script(src="/bootstrap/dist/js/bootstrap.js")
+    body
+        .container
+            .row
+                .page-header
+                    h1 #{title}
+
+block content
+    .container
+        .row
+            form.form-horizontal(method="post", action="/consume/new")
+                input(type="hidden", name="_id", value="#{consume._id}")
+                .form-group
+                    label.col-sm-2.control-label(for="money") 金额
+                    .col-sm-10
+                        input#money.form-control(type="text", name="money", value="#{consume.money}")
+                .form-group
+                    label.col-sm-2.control-label(for="scene") 场景
+                    .col-sm-10
+                        input#scene.form-control(type="text", name="scene", value="#{consume.scene}")
+                .form-group
+                    label.col-sm-2.control-label(for="pay_way") 支付方式
+                    .col-sm-10
+                        input#pay_way.form-control(type="text", name="pay_way", value="#{consume.pay_way}")
+                .form-group
+                    label.col-sm-2.control-label(for="useAt") 消费时间
+                    .col-sm-10
+                        input#useAt.form-control(type="text", name="useAt", value="#{consume.useAt}")
+                .form-group
+                    label.col-sm-2.control-label(for="describe") 描述
+                    .col-sm-10
+                        textarea#describe.form-control(rows="6")
+                .form-group
+                    button.btn.btn-default.pull-right 录入

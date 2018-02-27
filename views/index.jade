@@ -1,0 +1,40 @@
+//
+   Created by Administrator on 2018\1\21 0021.
+
+doctype
+html
+    head
+        meta(charset='utf-8')
+        title #{title}
+        link(href="/bootstrap/dist/css/bootstrap.css" rel="stylesheet")
+        script(src="/jquery/dist/jquery.js")
+        script(src="/bootstrap/dist/js/bootstrap.js")
+    body
+        .container
+            .row
+                .page-header
+                    h1 #{title}
+
+block content
+    .container
+        .row
+            table.table.table-striped.table-hover
+                thead
+                    tr
+                        th ID
+                        th 金额
+                        th 场景
+                        th 支付方式
+                        th 消费时间
+                        th 添加时间
+                tbody
+                    each item in data
+                        tr
+                            td #{item.id}
+                            td #{item.money}
+                            td #{item.scene}
+                            td #{item.pay_way}
+                            td #{moment(item.useAt).format('YYYY-MM-DD HH:mm:ss')}
+                            td #{moment(item.updateAt).format('YYYY-MM-DD HH:mm:ss')}
+        .row
+            a.btn.btn-default.pull-right(href="/consume") 添加消费记录
